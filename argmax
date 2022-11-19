@@ -1,0 +1,15 @@
+import torch
+
+
+outputs = torch.tensor([[0.1, 0.2],
+                       [0.3, 0.4]])
+
+print(outputs.argmax(1))
+#argmax中参数为1表示横向找最大的位置，为0时表示纵向最大的位置
+# print(outputs.argmax(0))
+preds = outputs.argmax(1)
+targets = torch.tensor([0, 1])
+print(preds == targets)
+#和tensor中的[0, 1]进行对比，对比pred和targets对应位置的正确与否
+print((preds == targets).sum())
+#使用sum表示统计正确匹配的个数和
